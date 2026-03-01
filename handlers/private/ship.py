@@ -84,7 +84,7 @@ async def ship_info(callback: CallbackQuery):
     
     await callback.message.delete()
     
-    image_path = os.path.join(config.BASE_DIR, 'static', 'shp.png')
+    image_path = os.path.join(config.BASE_DIR, 'static', 'ship.png')
     
     try:
         photo = FSInputFile(image_path)

@@ -5,7 +5,6 @@ from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 
 from keyboards.inline import back_button
-from typing import Dict
 from database.db import async_session
 from database.models import User
 from game_logic.casino import DiceGame

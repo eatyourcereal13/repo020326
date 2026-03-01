@@ -1,7 +1,7 @@
 import json
 import os
 from aiogram import Router, F
-from aiogram.types import CallbackQuery, InlineKeyboardButton, PreCheckoutQuery, LabeledPrice, Message
+from aiogram.types import CallbackQuery, InlineKeyboardButton, PreCheckoutQuery, LabeledPrice, Message, FSInputFile
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
@@ -110,10 +110,23 @@ async def voyage_start(callback: CallbackQuery):
     )
     
     await callback.message.delete()
-    await callback.message.answer(
-        text,
-        reply_markup=builder.as_markup()
-    )
+    
+    image_path = os.path.join(config.BASE_DIR, 'static', 'voyage.png')
+    
+    try:
+        photo = FSInputFile(image_path)
+        await callback.message.answer_photo(
+            photo=photo,
+            caption=text,
+            reply_markup=builder.as_markup()
+        )
+    except Exception as e:
+        print(f"Ошибка загрузки фото плавания: {e}")
+        await callback.message.answer(
+            text,
+            reply_markup=builder.as_markup()
+        )
+    
     await callback.answer()
 
 
@@ -877,7 +890,6 @@ async def skip_cooldown(callback: CallbackQuery):
 
 @router.pre_checkout_query(F.invoice_payload.startswith("voyage_skip_cooldown_"))
 async def voyage_pre_checkout_handler(pre_checkout_query: PreCheckoutQuery):
-    """Подтверждение платежа для пропуска перезарядки"""
     await pre_checkout_query.answer(ok=True)
 
 

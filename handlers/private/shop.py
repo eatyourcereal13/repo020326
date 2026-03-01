@@ -1,7 +1,7 @@
 import json
 import os
 from aiogram import Router, F
-from aiogram.types import CallbackQuery, InlineKeyboardButton, PreCheckoutQuery, LabeledPrice, Message
+from aiogram.types import CallbackQuery, InlineKeyboardButton, PreCheckoutQuery, LabeledPrice, Message, FSInputFile
 from handlers.admin.admin_panel import get_item_price
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from sqlalchemy import select
@@ -55,7 +55,20 @@ async def shop_main(callback: CallbackQuery):
         )
     
     await callback.message.delete()
-    await callback.message.answer(text, reply_markup=shop_menu())
+    
+    image_path = os.path.join(config.BASE_DIR, 'static', 'shop.png')
+    
+    try:
+        photo = FSInputFile(image_path)
+        await callback.message.answer_photo(
+            photo=photo,
+            caption=text,
+            reply_markup=shop_menu()
+        )
+    except Exception as e:
+        print(f"Ошибка загрузки фото магазина: {e}")
+        await callback.message.answer(text, reply_markup=shop_menu())
+    
     await callback.answer()
 
 

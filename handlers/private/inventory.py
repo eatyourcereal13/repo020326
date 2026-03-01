@@ -2,7 +2,7 @@ import json
 import os
 from aiogram import Router, F
 from typing import Dict
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, FSInputFile
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 
@@ -139,7 +139,20 @@ async def inventory_main(callback: CallbackQuery):
         )
     
     await callback.message.delete()
-    await callback.message.answer(text, reply_markup=inventory_categories_menu(sellable_count, usable_count, special_count))
+    
+    image_path = os.path.join(config.BASE_DIR, 'static', 'inventory.png')
+    
+    try:
+        photo = FSInputFile(image_path)
+        await callback.message.answer_photo(
+            photo=photo,
+            caption=text,
+            reply_markup=inventory_categories_menu(sellable_count, usable_count, special_count)
+        )
+    except Exception as e:
+        print(f"Ошибка загрузки фото инвентаря: {e}")
+        await callback.message.answer(text, reply_markup=inventory_categories_menu(sellable_count, usable_count, special_count))
+    
     await callback.answer()
 
 
