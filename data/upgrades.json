@@ -1,0 +1,127 @@
+{
+  "ship": {
+    "sails": {
+      "name": "⛵ Новые паруса",
+      "description": "Увеличивают количество добычи и сокращают перезарядку",
+      "base_price": 300,
+      "price_multiplier": 2.0,
+      "effect": "loot_quantity",
+      "effect_per_level": 1,
+      "effect_unit": " предмет, -30 сек кд",
+      "max_level": 3,
+      "cooldown_reduction": 30
+    },
+    "hull": {
+      "name": "🛡️ Усиленный корпус",
+      "description": "Уменьшает урон от событий и сокращает перезарядку",
+      "base_price": 150,
+      "price_multiplier": 1.6,
+      "effect": "damage_reduction",
+      "effect_per_level": 5,
+      "effect_unit": "% урона, -20 сек кд",
+      "max_level": 10,
+      "cooldown_reduction": 20
+    },
+    "cannons": {
+      "name": "🔫 Пушки",
+      "description": "Увеличивают урон в бою",
+      "base_price": 200,
+      "price_multiplier": 1.7,
+      "effect": "combat_power",
+      "effect_per_level": 8,
+      "effect_unit": "%",
+      "max_level": 10,
+      "cooldown_reduction": 0
+    },
+    "hold": {
+      "name": "📦 Трюм",
+      "description": "Увеличивает ценность найденных предметов",
+      "base_price": 120,
+      "price_multiplier": 1.5,
+      "effect": "loot_value",
+      "effect_per_level": 5,
+      "effect_unit": "%",
+      "max_level": 10,
+      "cooldown_reduction": 0
+    },
+    "copper_sheathing": {
+      "name": "⚓ Медная обшивка",
+      "description": "Повышает шанс найти редкие предметы и сокращает перезарядку",
+      "base_price": 300,
+      "price_multiplier": 1.8,
+      "effect": "rare_chance",
+      "effect_per_level": 3,
+      "effect_unit": "% к шансу редких, -15 сек кд",
+      "max_level": 10,
+      "cooldown_reduction": 15
+    },
+    "steam_engine": {
+      "name": "⚙️ Паровой двигатель",
+      "description": "Серьёзно сокращает перезарядку",
+      "base_price": 500,
+      "price_multiplier": 2.0,
+      "effect": "cooldown_reduction",
+      "effect_per_level": 60,
+      "effect_unit": "сек кд",
+      "max_level": 5,
+      "cooldown_reduction": 60
+    }
+  },
+  "crew": {
+    "boatswain": {
+      "name": "👨‍✈️ Боцман",
+      "description": "Уменьшает урон от событий и ускоряет подготовку к рейду",
+      "base_price": 80,
+      "price_multiplier": 1.4,
+      "effect": "event_damage_reduction",
+      "effect_per_level": 15,
+      "effect_unit": "% урона, -10% кд",
+      "max_level": 1,
+      "cooldown_reduction_percent": 10
+    },
+    "cook": {
+      "name": "🍲 Кок",
+      "description": "Повышает ценность провизии",
+      "base_price": 100,
+      "price_multiplier": 1.5,
+      "effect": "consumables_value",
+      "effect_per_level": 10,
+      "effect_unit": "%",
+      "max_level": 5,
+      "cooldown_reduction": 0
+    },
+    "gunner": {
+      "name": "🎯 Канонир",
+      "description": "Увеличивает урон в бою",
+      "base_price": 150,
+      "price_multiplier": 1.6,
+      "effect": "combat_damage",
+      "effect_per_level": 12,
+      "effect_unit": "%",
+      "max_level": 5,
+      "cooldown_reduction": 0
+    },
+    "navigator": {
+      "name": "🧭 Штурман",
+      "description": "Повышает шанс найти редкие события",
+      "base_price": 120,
+      "price_multiplier": 1.5,
+      "effect": "rare_event_chance",
+      "effect_per_level": 4,
+      "effect_unit": "%",
+      "max_level": 5,
+      "cooldown_reduction": 0
+    },
+    "parrot": {
+      "name": "🦜 Попугай",
+      "description": "Повышает шанс дублей в казино",
+      "base_price": 200,
+      "price_multiplier": 1.7,
+      "effect": "casino_luck",
+      "effect_per_level": 2,
+      "effect_unit": "%",
+      "max_level": 3,
+      "cooldown_reduction": 0
+    }
+  }
+}

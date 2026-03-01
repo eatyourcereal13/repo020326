@@ -1,0 +1,109 @@
+{
+  "sellable": {
+    "rope": {
+      "name": "Веревка",
+      "emoji": "🪢",
+      "price": 5,
+      "rarity": "common",
+      "description": "Старая пеньковая веревка"
+    },
+    "empty_barrel": {
+      "name": "Пустая бочка",
+      "emoji": "🛢️",
+      "price": 8,
+      "rarity": "common",
+      "description": "Деревянная бочка без содержимого"
+    },
+    "rusty_nails": {
+      "name": "Ржавые гвозди",
+      "emoji": "🔩",
+      "price": 10,
+      "rarity": "common",
+      "description": "Можно использовать для ремонта"
+    },
+    "rum_sellable": {
+      "name": "Ром",
+      "emoji": "🍺",
+      "price": 15,
+      "rarity": "uncommon",
+      "description": "Напиток настоящих пиратов"
+    },
+    "gunpowder": {
+      "name": "Порох",
+      "emoji": "💥",
+      "price": 15,
+      "rarity": "uncommon",
+      "description": "Для пушек и фейерверков"
+    },
+    "silver_coins": {
+      "name": "Серебряные монеты",
+      "emoji": "🪙",
+      "price": 40,
+      "rarity": "rare",
+      "description": "Звякают приятно"
+    },
+    "gold_bar": {
+      "name": "Золотой слиток",
+      "emoji": "🪙",
+      "price": 100,
+      "rarity": "epic",
+      "description": "Тяжелый и ценный"
+    },
+    "treasure_chest": {
+      "name": "Сундук с сокровищами",
+      "emoji": "🧰",
+      "price": 2000,
+      "rarity": "legendary",
+      "description": "Полный золота и драгоценностей"
+    }
+  },
+  "usable": {
+    "healing_potion": {
+      "name": "Лечебное зелье",
+      "emoji": "🧪",
+      "price": 150,
+      "effect": "repair_ship",
+      "effect_value": 50,
+      "description": "Восстанавливает 50% прочности корабля",
+      "duration": "instant"
+    },
+    "rum_usable": {
+      "name": "Ром",
+      "emoji": "🍺",
+      "price": 50,
+      "effect": "reset_cooldown",
+      "description": "Мгновенно сбрасывает перезарядку корабля",
+      "duration": "instant",
+      "max_stack": 10
+    },
+    "death_island_ticket": {
+      "name": "Билет на Остров смерти",
+      "emoji": "🎫",
+      "price_stars": 2,
+      "effect": "unlock_location",
+      "description": "Открывает доступ к Острову смерти на 3 рейда",
+      "duration": "voyages_3",
+      "max_stack": 100
+    }
+  },
+  "special": {
+    "treasure_map": {
+      "name": "Карта сокровищ",
+      "emoji": "🗺️",
+      "price_stars": 2,
+      "effect": "guaranteed_chest",
+      "description": "Гарантирует сундук в следующем рейде",
+      "duration": "next_voyage",
+      "max_stack": 100
+    },
+    "luck_amulet": {
+      "name": "Амулет удачи",
+      "emoji": "🍀",
+      "price_stars": 2,
+      "effect": "luck_boost",
+      "description": "Повышает редкость добычи на 3 рейда",
+      "duration": "voyages_3",
+      "max_stack": 100
+    }
+  }
+}

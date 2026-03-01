@@ -1,0 +1,43 @@
+{
+  "navirettnye_ostrova": {
+    "name": "🏝️ Наветренные острова",
+    "description": "Спокойные воды, безопасно для новичков",
+    "min_level": 1,
+    "base_time": 25,
+    "loot_multiplier": 1.0,
+    "event_chance": 0.1,
+    "unlock_cost": 0,
+    "image": "navirettnye_ostrova.png"
+  },
+  "tortuga": {
+    "name": "🏴‍☠️ Тортуга",
+    "description": "Пиратская гавань, полно торговых судов",
+    "min_level": 10,
+    "base_time": 30,
+    "loot_multiplier": 1.3,
+    "event_chance": 0.15,
+    "unlock_cost": 1000,
+    "image": "tortuga.png"
+  },
+  "bermudsky_treugolnik": {
+    "name": "🌀 Бермудский треугольник",
+    "description": "Мистическое место, полное опасностей и сокровищ",
+    "min_level": 20,
+    "base_time": 35,
+    "loot_multiplier": 1.8,
+    "event_chance": 0.25,
+    "unlock_cost": 5000,
+    "image": "bermudsky_treugolnik.png"
+  },
+  "ostrov_smerti": {
+    "name": "💀 Остров смерти",
+    "description": "Легендарное место, доступное только по билетам",
+    "min_level": 1,
+    "base_time": 40,
+    "loot_multiplier": 2.5,
+    "event_chance": 0.4,
+    "unlock_cost": 10000,
+    "requires_item": "death_island_ticket",
+    "image": "ostrov_smerti.png"
+  }
+}

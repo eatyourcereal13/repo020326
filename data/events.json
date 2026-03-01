@@ -1,0 +1,116 @@
+{
+  "storm": {
+    "name": "🌊 Шторм",
+    "description": "На море разыгрался сильный шторм!",
+    "chance": 60,
+    "min_level": 1,
+    "options": [
+      {
+        "text": "Переждать",
+        "callback": "storm_wait",
+        "result": "time_double"
+      },
+      {
+        "text": "Заплатить матросам",
+        "callback": "storm_pay",
+        "result": "time_normal",
+        "cost": 30
+      }
+    ]
+  },
+  "merchant": {
+    "name": "🛳️ Торговое судно",
+    "description": "На горизонте торговое судно!",
+    "chance": 40,
+    "min_level": 1,
+    "options": [
+      {
+        "text": "Атаковать",
+        "callback": "merchant_attack",
+        "result": "combat"
+      },
+      {
+        "text": "Договориться",
+        "callback": "merchant_trade",
+        "result": "discount_trade"
+      },
+      {
+        "text": "Проплыть мимо",
+        "callback": "merchant_ignore",
+        "result": "nothing"
+      }
+    ]
+  },
+  "kraken": {
+    "name": "🐙 Кракен",
+    "description": "Из глубины показалось огромное щупальце!",
+    "chance": 20,
+    "min_level": 5,
+    "options": [
+      {
+        "text": "Сражаться",
+        "callback": "kraken_fight",
+        "result": "combat_boss"
+      },
+      {
+        "text": "Уплыть",
+        "callback": "kraken_run",
+        "result": "time_increase"
+      }
+    ]
+  },
+  "island": {
+    "name": "🏝️ Таинственный остров",
+    "description": "Вдали виднеется неизведанный остров",
+    "chance": 20,
+    "min_level": 1,
+    "options": [
+      {
+        "text": "Высадиться",
+        "callback": "island_land",
+        "result": "bonus_loot"
+      },
+      {
+        "text": "Проплыть мимо",
+        "callback": "island_ignore",
+        "result": "nothing"
+      }
+    ]
+  },
+  "whale": {
+    "name": "🐋 Кит",
+    "description": "Огромный кит выпрыгнул из воды рядом с кораблем!",
+    "chance": 30,
+    "min_level": 1,
+    "options": [
+      {
+        "text": "Понаблюдать",
+        "callback": "whale_watch",
+        "result": "luck_boost"
+      },
+      {
+        "text": "Плыть дальше",
+        "callback": "whale_ignore",
+        "result": "nothing"
+      }
+    ]
+  },
+  "siren": {
+    "name": "🧜‍♀️ Сирены",
+    "description": "Слышно прекрасное пение...",
+    "chance": 40,
+    "min_level": 10,
+    "options": [
+      {
+        "text": "Заткнуть уши",
+        "callback": "siren_resist",
+        "result": "time_reduction"
+      },
+      {
+        "text": "Плыть на звук",
+        "callback": "siren_follow",
+        "result": "danger"
+      }
+    ]
+  }
+}
