@@ -200,5 +200,18 @@ async def show_profile(callback: CallbackQuery):
         )
     
     await callback.message.delete()
-    await callback.message.answer(text, reply_markup=back_button("main_menu"))
+    
+    image_path = os.path.join(config.BASE_DIR, 'static', 'profile.png')
+    
+    try:
+        photo = FSInputFile(image_path)
+        await callback.message.answer_photo(
+            photo=photo,
+            caption=text,
+            reply_markup=back_button("main_menu")
+        )
+    except Exception as e:
+        print(f"Ошибка загрузки фото профиля: {e}")
+        await callback.message.answer(text, reply_markup=back_button("main_menu"))
+    
     await callback.answer()

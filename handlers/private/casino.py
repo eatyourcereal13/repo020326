@@ -1,13 +1,15 @@
 from aiogram import Router, F
-from aiogram.types import CallbackQuery, InlineKeyboardButton
+from aiogram.types import CallbackQuery, InlineKeyboardButton, FSInputFile
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
+import os
 
 from keyboards.inline import back_button
 from database.db import async_session
 from database.models import User
 from game_logic.casino import DiceGame
+from config import config
 
 router = Router()
 
@@ -56,7 +58,20 @@ async def casino_main(callback: CallbackQuery):
     )
     
     await callback.message.delete()
-    await callback.message.answer(text, reply_markup=builder.as_markup())
+    
+    image_path = os.path.join(config.BASE_DIR, 'static', 'casino.png')
+    
+    try:
+        photo = FSInputFile(image_path)
+        await callback.message.answer_photo(
+            photo=photo,
+            caption=text,
+            reply_markup=builder.as_markup()
+        )
+    except Exception as e:
+        print(f"Ошибка загрузки фото казино: {e}")
+        await callback.message.answer(text, reply_markup=builder.as_markup())
+    
     await callback.answer()
 
 
@@ -182,6 +197,7 @@ async def casino_play(callback: CallbackQuery):
         await callback.message.answer(text, reply_markup=builder.as_markup())
         await callback.answer()
 
+
 @router.callback_query(F.data == "casino_balance")
 async def casino_balance(callback: CallbackQuery):
     async with async_session() as session:
@@ -203,5 +219,18 @@ async def casino_balance(callback: CallbackQuery):
     )
     
     await callback.message.delete()
-    await callback.message.answer(text, reply_markup=back_button("casino_main"))
+    
+    image_path = os.path.join(config.BASE_DIR, 'static', 'casino.png')
+    
+    try:
+        photo = FSInputFile(image_path)
+        await callback.message.answer_photo(
+            photo=photo,
+            caption=text,
+            reply_markup=back_button("casino_main")
+        )
+    except Exception as e:
+        print(f"Ошибка загрузки фото казино: {e}")
+        await callback.message.answer(text, reply_markup=back_button("casino_main"))
+    
     await callback.answer()
